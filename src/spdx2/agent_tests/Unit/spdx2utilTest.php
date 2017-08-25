@@ -72,7 +72,9 @@ class spdx2Test extends \PHPUnit_Framework_TestCase
         'invalid plus' => array("abc+123", $constFalse, SpdxTwoUtils::$prefix . "abc-123"),
         'other invalid chars' => array("to do?", $constFalse, SpdxTwoUtils::$prefix . "to-do-"),
         'valid plus' => array("this+that_more+", $constFalse, SpdxTwoUtils::$prefix . "this-that_more+"),
-        'valid periods' => array("name.with.dots.", $constFalse, SpdxTwoUtils::$prefix . "name.with.dots.")
+        'valid periods' => array("name.with.dots.", $constFalse, SpdxTwoUtils::$prefix . "name.with.dots."),
+        'multibyte chars' => array("b█r", $constFalse, SpdxTwoUtils::$prefix . 'b-r'),
+        'umlaut chars' => array("bär", $constFalse, SpdxTwoUtils::$prefix . 'baer'),
     );
   }
 

@@ -68,6 +68,7 @@ class SpdxTwoUtils
 
     // if we get here, we're using a non-standard SPDX license
     // make sure our license text conforms to the SPDX specifications
+    $license = iconv('UTF-8', 'US-ASCII//TRANSLIT', $license);
     $license = preg_replace('/[^a-zA-Z0-9\-\_\.\+]/','-',$license);
     $license = preg_replace('/\+(?!$)/','-',$license);
     return self::$prefix . $license;
